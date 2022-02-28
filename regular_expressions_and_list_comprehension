@@ -1,0 +1,18 @@
+import re
+hand = open('regex_actual.txt')
+sumint = 0
+for line in hand:
+    num = re.findall('[0-9]+', line)
+    inum = [int(i) for i in num]
+    sumint = sum(inum) + sumint
+print(sumint)
+
+# list comprehension version
+print(sum([int(i) for i in re.findall('[0-9]+',open('regex_actual.txt').read())]))
+
+
+# read the file
+# look for integers using the re.findall()
+# looking for a regular expression of '[0-9]+' parse and extract
+# and then converting the extracted strings to integers
+# and summing up the integers.
