@@ -1,0 +1,13 @@
+# reading file, extracting data and calculating average
+
+fname = input("Enter file name: ")
+fh = open(fname)
+count = 0
+total = 0
+for line in fh:
+    if line.startswith("X-DSPAM-Confidence:"):
+        count = count + 1
+        colonpos = line.find(':')
+        num = line[colonpos + 1:]
+        total = total + float(num)
+print('Average spam confidence:', total/count)
