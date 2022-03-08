@@ -1,0 +1,39 @@
+# card = input('Enter card name: ')
+def value_of_card(card):
+    if card == 'A': return 1
+    elif card in 'KQJ': return 10
+    else: return int(card)
+# print(value_of_card(card))
+
+# card_one = input('enter card_one: ')
+# card_two = input('enter card_two: ')
+def higher_card(card_one, card_two):
+    if value_of_card(card_one) > value_of_card(card_two): return card_one
+    elif value_of_card(card_one) < value_of_card(card_two): return card_two
+    else: return (card_one, card_two)
+# print(higher_card(card_one, card_two))
+
+def value_of_ace(card_one, card_two):
+    if card_one == 'A' or card_two == 'A': return 1
+    elif value_of_card(card_one) + value_of_card(card_two) > 10: return 1
+    else: return 11
+# print(value_of_ace(card_one, card_two))
+
+def is_blackjack(card_one, card_two):
+    if card_one == 'A' or card_two == 'A':
+        if card_one in 'KQJ10' or card_two in 'KQJ10' : return True
+        else: return False
+    else: return False
+# print(is_blackjack(card_one, card_two))
+
+def can_split_pairs(card_one, card_two):
+    if value_of_card(card_one) == value_of_card(card_two) : return True
+    else: return False
+# print(can_split_pairs(card_one, card_two))
+
+def can_double_down(card_one, card_two):
+    if value_of_card(card_one) + value_of_card(card_two) == 9 : return True
+    elif value_of_card(card_one) + value_of_card(card_two) == 10 : return True
+    elif value_of_card(card_one) + value_of_card(card_two) == 11 : return True
+    else: return False
+# print(can_double_down(card_one, card_two))
